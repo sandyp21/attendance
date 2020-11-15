@@ -10,11 +10,11 @@
             $this->db = $conn;
         }
         //function to insert a new record into the attendance database
-        public function insertAttendees($fname, $lname, $dob, $email, $contact, $specialty){
+        public function insertAttendees($fname, $lname, $dob, $email,$contact,$specialty,$avatar_path){
             try {
                 //define sql statement to be executed
-                $sql = "INSERT INTO attendee (firstname,lastname,dateofbirth,email,contactnum,specialty_id)
-                 VALUES (:fname, :lname, :dob, :email, :contact, :specialty)";
+                $sql = "INSERT INTO attendee (firstname,lastname,dateofbirth,email,contactnum,specialty_id,avatar_path)
+                 VALUES (:fname, :lname, :dob, :email, :contact, :specialty, :avatar_path)";
 
                  //prepare the sql statement for execution
                 $stmt = $this->db->prepare($sql);
@@ -26,6 +26,8 @@
                 $stmt->bindparam(':email', $email);
                 $stmt->bindparam(':contact', $contact);
                 $stmt->bindparam(':specialty', $specialty);
+                $stmt->bindparam(':avatar_path', $avatar_path);
+
 
                 // execute statement
                 $stmt->execute();
@@ -139,7 +141,7 @@
             $stmt->bindparam(':id', $id);
             $stmt->execute();
             $result = $stmt->fetch();
-            return true;
+            return $result;
            }
            catch (PDOException $e) {
                 //throw $th;
