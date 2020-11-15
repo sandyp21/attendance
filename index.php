@@ -23,7 +23,7 @@
 
     <h1 class="text-center">Registration For IT Conference</h1>
 
-<form method="post" action="success.php">
+<form method="post" action="success.php" enctype="multipart/form-data">
     <div class="form-group">
         <label for="firstname">First Name</label>
         <input  required type="text" class="form-control" id="firstname" name="firstname" >
@@ -60,7 +60,16 @@
         <input type="text" class="form-control" id="phone" name="phone" aria-describedby="phoneHelp">
         <small id="phoneHelp" class="form-text text-muted">We'll never share your phone number with anyone else.</small>
     </div>
-    
+    <br/>
+  
+    <div class="custom-file">
+        <input type="file" accept="image/*" class="custom-file-input" id="avatar" name="avatar" >
+        <label class="custom-file-label" for="avatar">Choose File</label>
+        <small id="avatar" class="form-text text-danger">File Upload is Optional</small>
+        
+    </div>
+    <br/>
+    <br/>
     <button type="submit" class="btn btn-info btn-lg" name="submit">Submit</button>
 </form>
 <br/>

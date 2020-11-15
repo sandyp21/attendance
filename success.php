@@ -14,6 +14,14 @@
         $email = $_POST['email'];
         $contact = $_POST['phone'];
         $specialty = $_POST['specialty'];
+
+        $orig_file = $_FILES["avatar"]["tmp_name"];
+        $target_dir = 'uploads/';
+        $destination =$target_dir . basename($_FILES["avatar"]["name"]);
+        move_uploaded_file($orig_file,$destination);
+
+        exit();
+
         
         //Call function to insert and track if successful or not
         $isSuccess = $crud->insertAttendees($fname, $lname, $dob, $email, $contact, $specialty);
