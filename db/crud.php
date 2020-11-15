@@ -14,7 +14,7 @@
             try {
                 //define sql statement to be executed
                 $sql = "INSERT INTO attendee (firstname,lastname,dateofbirth,email,contactnum,specialty_id,avatar_path)
-                 VALUES (:fname, :lname, :dob, :email, :contact, :specialty, :avatar_path)";
+                 VALUES (:fname, :lname, :dob, :email, :contact, :specialty,:avatar_path)";
 
                  //prepare the sql statement for execution
                 $stmt = $this->db->prepare($sql);

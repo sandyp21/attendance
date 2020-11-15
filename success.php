@@ -1,6 +1,6 @@
 <?php 
 
-    $title = 'Index';
+    $title = 'Success';
     require_once 'includes/header.php'; 
     require_once 'db/conn.php';
     require_once 'sendemail.php';
@@ -18,11 +18,9 @@
         $orig_file = $_FILES["avatar"]["tmp_name"];
         $ext = pathinfo($_FILES["avatar"]["name"], PATHINFO_EXTENSION);
         $target_dir = 'uploads/';
-        $destination ="$target_dir$contact.$ext";
+        $destination = "$target_dir$contact.$ext";
         move_uploaded_file($orig_file,$destination);
-
     
-
         
         //Call function to insert and track if successful or not
         $isSuccess = $crud->insertAttendees($fname, $lname, $dob, $email, $contact,$specialty,$destination);
